@@ -9,13 +9,21 @@ const [
 function getRandomHexColor() {
   return `#${Math.floor(Math.random() * 16777215).toString(16)}`;
 }
-const updataCollor = getRandomHexColor()
 
 function createBoxes(amount) {
+  
   for (let i = 0; i <= amount; i++) {
-    return `<div>ffsdfs</div>`
+    const updataCollor = getRandomHexColor()
+    return `<div style="
+      width:calc(30px + 10*${i}px);
+      height:calc(30px + 10*${i}px);
+      background:${updataCollor};
+    "></div>`
   }
 }
+
 create.addEventListener('click', () => {
-  console.log(createBoxes(input.value))
+  const createElements = createBoxes(input.value);
+  
+containers.insertAdjacentHTML('afterbegin', createElements)
 })
