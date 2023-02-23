@@ -4,6 +4,7 @@ function updateMainText(event) {
   if (input.value === '') {
     return text.innerText = 'Anonymous'
   }
-   return text.innerText = input.value
+  return text.innerText = input.value
+  
   }
 input.addEventListener('input', updateMainText)

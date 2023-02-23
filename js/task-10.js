@@ -1,7 +1,7 @@
 const [
   reset,
   create,
-  containers,
+  container,
   input
 ] = ['[data-destroy]', '[data-create]', '#boxes', '[type="number"]']
   .map(item => document.querySelector(item))
@@ -11,26 +11,30 @@ function getRandomHexColor() {
 }
 
 function createBoxes(amount) {
-  for (let i = 0; i <= amount; i++) {
+  const containers = []
+  for (let i = 0; i < amount; i++) {
     const updataCollor = getRandomHexColor()
-    return `<div style="
+    const divs = document.createElement('div');
+    divs.style = `
       width:calc(30px + 10*${i}px);
       height:calc(30px + 10*${i}px);
       margin:10px;
       background:${updataCollor};
-    "></div>`
+    `
+    containers.push(divs)    
   }
+  return containers
 }
 
 create.addEventListener('click', () => {
   const createElements = createBoxes(+input.value);
-  console.log(+input.value);
+  console.log(+input.value, createElements);
   
-containers.insertAdjacentHTML('afterbegin', createElements)
+container.append(...createElements)
 })
 
 function destroyBoxes(event) {
-  containers.innerHTML = ''
+  container.innerHTML = ''
 };
 
 reset.addEventListener('click', destroyBoxes)
