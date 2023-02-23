@@ -1,22 +1,20 @@
-const form = document.querySelector('.login-form')
+const form = document.querySelector('.login-form');
 form.onsubmit = function (event) {
-  event.preventDefault()
+  event.preventDefault();
   const refs = {
     password: event.currentTarget.elements.password,
-    email:event.currentTarget.elements.email
-  }
-  
+    email: event.currentTarget.elements.email,
+  };
+
   if (refs.password.value !== '' && refs.email.value !== '') {
-    const elements = new FormData(event.currentTarget)
+    const elements = new FormData(event.currentTarget);
     elements.forEach((value, prop) => {
       console.log(prop, value);
-      return elements
-    })
+      return elements;
+    });
   } else {
-    return alert('всі поля повинні бути заповнені')
+    return alert('всі поля повинні бути заповнені');
   }
 
-   this.reset()
-
+  this.reset();
 };
-

@@ -14,18 +14,20 @@ const images = [
 ];
 
 // ------------------------------- 1
-const unordList = document.querySelector('.gallery')
-console.log(unordList)
-const createImagesFn = item => {
-  return item.map(item => {
-    return `
+const unordList = document.querySelector('.gallery');
+console.log(unordList);
+const createImagesFn = (item) => {
+  return item
+    .map((item) => {
+      return `
       <li><img src="${item.url}" alt="${item.alt}" width="100"></li>
-    `
-  }).join('')
-}
+    `;
+    })
+    .join('');
+};
 
 const createImages = createImagesFn(images);
-unordList.insertAdjacentHTML('afterbegin', createImages)
+unordList.insertAdjacentHTML('afterbegin', createImages);
 
 // ----------------------------------2
 
@@ -36,9 +38,9 @@ const addList = ({ url, alt } = {}) => {
   img.alt = `${alt}`;
   img.width = 100;
   list.appendChild(img);
-  console.log(list)
-  return list
-}
+  console.log(list);
+  return list;
+};
 
 const createImagesTwo = images.map(addList);
-unordList.append(...createImagesTwo)
+unordList.append(...createImagesTwo);
