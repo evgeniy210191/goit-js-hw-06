@@ -11,19 +11,26 @@ function getRandomHexColor() {
 }
 
 function createBoxes(amount) {
-  
   for (let i = 0; i <= amount; i++) {
     const updataCollor = getRandomHexColor()
     return `<div style="
       width:calc(30px + 10*${i}px);
       height:calc(30px + 10*${i}px);
+      margin:10px;
       background:${updataCollor};
     "></div>`
   }
 }
 
 create.addEventListener('click', () => {
-  const createElements = createBoxes(input.value);
+  const createElements = createBoxes(+input.value);
+  console.log(+input.value);
   
 containers.insertAdjacentHTML('afterbegin', createElements)
 })
+
+function destroyBoxes(event) {
+  containers.innerHTML = ''
+};
+
+reset.addEventListener('click', destroyBoxes)
