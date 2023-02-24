@@ -3,7 +3,7 @@ function inputPattern(event) {
   if (input.value === '') {
     return input.removeAttribute('class');
   }
-  if (+input.dataset.length === +input.value.length) {
+  if (+input.dataset.length === input.value.length) {
     if (!input.hasAttribute('class')) {
       return input.classList.add('valid');
     }
